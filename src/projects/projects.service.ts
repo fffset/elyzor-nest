@@ -1,4 +1,4 @@
-import { Injectable, Inject, forwardRef } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { ProjectsRepository } from './projects.repository';
 import { IProject } from './projects.types';
 import { CreateProjectDto } from './dtos/create-project.dto';
@@ -11,8 +11,8 @@ import { UsageRepository } from '../usage/usage.repository';
 export class ProjectsService {
   constructor(
     private readonly projectRepo: ProjectsRepository,
-    @Inject(forwardRef(() => ApiKeyRepository)) private readonly apiKeyRepo: ApiKeyRepository,
-    @Inject(forwardRef(() => ServiceRepository)) private readonly serviceRepo: ServiceRepository,
+    private readonly apiKeyRepo: ApiKeyRepository,
+    private readonly serviceRepo: ServiceRepository,
     private readonly usageRepo: UsageRepository,
   ) {}
 

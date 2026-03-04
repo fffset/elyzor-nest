@@ -1,11 +1,11 @@
-import { Module, forwardRef } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { VerificationService } from './verification.service';
 import { VerificationController } from './verification.controller';
 import { ApiKeysModule } from '../apikeys/apikeys.module';
 import { UsageModule } from '../usage/usage.module';
 
 @Module({
-  imports: [forwardRef(() => ApiKeysModule), UsageModule],
+  imports: [ApiKeysModule, UsageModule],
   controllers: [VerificationController],
   providers: [VerificationService],
 })
